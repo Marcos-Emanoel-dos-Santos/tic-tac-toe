@@ -1,0 +1,45 @@
+.tabuleiro{
+    display: column;
+}
+.l1, .l2, .l3{
+    display: flex;
+}
+.item {
+    width: 100px;
+    height: 100px;
+    border: 2px black solid;
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.X {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+.X:before,
+.X:after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background-color: black;
+}
+.X:before {
+    transform: rotate(45deg);
+}
+.X:after {
+    transform: rotate(-45deg);
+}
+
+.O {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px black solid;
+}
+
+.destaque{
+    background-color: red;
+}
