@@ -1,5 +1,16 @@
+:root{
+    --cor-fundo: #91a2d1;
+}
+
+body {
+    display: flex;
+    background-color: var(--cor-fundo);
+}
+
 .tabuleiro{
     display: column;
+    width: fit-content;
+    height: fit-content;
 }
 .l1, .l2, .l3{
     display: flex;
@@ -42,4 +53,22 @@
 
 .destaque{
     background-color: red;
+}
+
+.tabela_pontuacao {
+    display: flex;
+    width: 400px;
+    height: 150px;
+    margin: 0 5px;
+    justify-content: space-evenly;
+    border: 2px black solid;
+}
+
+.pontuacao_x_t,.pontuacao_y_t{
+    margin: 10px 0 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.pontuacao_y, .pontuacao_x {
+    text-align: center;
 }
