@@ -7,11 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <section id="placares">
+        <section class="tabela_pontuacao">
+            <div class="tabela_X">
+                <p class="pontuacao_x_t">Pontuação de X</p>
+                <p id="pontuacao_x">0</p>
+            </div>
+            <div class="tabela_O">
+                <p class="pontuacao_o_t">Pontuação de O</p>
+                <p id="pontuacao_o">0</p>
+            </div>
+        </section>
+        <button id="restart">Reiniciar</button>
+    </section>
     <section class="tabuleiro">
         <div class="l1">
-            <div class="item linha1 coluna1"></div>
-            <div class="item linha1 coluna2"></div>
-            <div class="item linha1 coluna3"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
         </div>
         <div class="l2">
             <div class="item"></div>
@@ -24,19 +37,6 @@
             <div class="item"></div>
         </div>
     </section>
-
-    <section class="tabela_pontuacao">
-        <div class="tabela_X">
-            <p class="pontuacao_x_t">Pontuação de X</p>
-            <p class="pontuacao_x">3</p>
-        </div>
-        <div class="tabela_Y">
-            <p class="pontuacao_y_t">Pontuação de Y</p>
-            <p class="pontuacao_y">2</p>
-        </div>
-    </section>
-
-    <button class="restart">Reiniciar</button>
 
     <script src="main.js"></script>
 </body>

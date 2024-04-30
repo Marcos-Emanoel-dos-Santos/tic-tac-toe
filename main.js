@@ -1,4 +1,11 @@
 const quadrados = document.getElementsByClassName('item');
+const reset = document.getElementById('restart');
+
+const P1_pontuacao_txt = document.getElementById('pontuacao_x');
+const P2_pontuacao_txt = document.getElementById('pontuacao_o');
+
+var P1_pontuacao_valor = 0;
+var P2_pontuacao_valor = 0;
 
 var click = 0;
 
@@ -24,6 +31,18 @@ function criaO(item){
 function verificaVitoria(jogadas, vitoria){
     return vitoria.every(numero => jogadas.includes(numero));
 }
+function geraPontuacao(){
+    if(click % 2 == 0){
+        P1_pontuacao_valor++;
+    } else if(click % 2 == 1){
+        P2_pontuacao_valor++;
+    }
+    pontuacaoValores();
+}
+function pontuacaoValores(){
+    P1_pontuacao_txt.innerHTML = P1_pontuacao_valor;
+    P2_pontuacao_txt.innerHTML = P2_pontuacao_valor;
+}
 
 for(let i = 0; i<quadrados.length; i++){
     const item = quadrados[i];
@@ -45,7 +64,9 @@ for(let i = 0; i<quadrados.length; i++){
                         for (const posicao of vitoria) {
                             quadrados[posicao - 1].classList.add('destaque');
                         }
+                        geraPontuacao();
                         click = 0.5;
+
                         break;
                     }
                 }
@@ -64,6 +85,7 @@ for(let i = 0; i<quadrados.length; i++){
                         for (const posicao of vitoria) {
                             quadrados[posicao - 1].classList.add('destaque');
                         }
+                        geraPontuacao();
                         click = 0.5;
                         break;
                     }
@@ -73,3 +95,20 @@ for(let i = 0; i<quadrados.length; i++){
             }
         }
 }
+
+pontuacaoValores();
+
+reset.addEventListener('click', () => { // reseta o jogo, exceto o placar
+    player1 = []
+    player2 = []
+    click = 0;
+    for(let i = 0; i<quadrados.length; i++){ // tira as jogadas e cor de cada casa do tabuleiro
+        const casa = quadrados[i]
+        if(casa.classList.contains('destaque')){
+            casa.classList.remove('destaque');
+        }
+        while(casa.firstChild){
+            casa.removeChild(casa.firstChild);
+        }
+    }
+})
